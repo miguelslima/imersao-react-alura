@@ -55,7 +55,7 @@ export const VideoCardList = styled.ul`
   }
 
   &::-webkit-scrollbar {
-    width: 12px;
+    padding-right: 20px;
     border-radius: 10px;
     background-color: #F5F5F5;
   }

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const FooterBase = styled.footer`  
-  margin-top: 50px;
+  margin-top: 0px;
   background: var(--black);
   border-top: 2px solid var(--primary);
   padding-left: 16px;
@@ -13,6 +13,6 @@ export const FooterBase = styled.footer`
   text-align: center;
 
   @media (max-width: 800px) {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
   }
 `;
