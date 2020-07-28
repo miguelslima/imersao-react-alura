@@ -1,6 +1,68 @@
 {
   "categorias": [
     {
+      "titulo": "Snipers",
+      "cor": "#7159c1",
+      "link_extra": {
+        "text": "Snipers Yotube",
+        "url": "https://www.youtube.com/results?search_query=tiro+de+snipers+mais+longo"
+       
+      },
+      "videos": [
+        {
+          "titulo": "TOP 3: OS TIROS MAIS LONGOS DISPARADOS POR SNIPERS!",
+          "url": "https://www.youtube.com/watch?v=A0nbCUnJnJg"
+        },
+        {
+          "titulo": "3 Forças Especiais mais LETAIS do MUNDO",
+          "url": "https://www.youtube.com/watch?v=j2L9luE5yPI"
+        },
+        {
+          "titulo": "5 Forças Especiais mais LETAIS da America do Sul",
+          "url": "https://www.youtube.com/watch?v=5bxhX9p5blo"
+        },
+        {
+          "titulo": "Policia Federal (BRA) x FBI (EUA) - Comparação",
+          "url": "https://www.youtube.com/watch?v=Epa3WzjbWdA"
+        }, 
+        {
+          "titulo": "Os 10 Snipers mais LETAIS da Historia",
+          "url": "https://www.youtube.com/watch?v=0hfw6qaw3xs"
+        }
+      ]
+    },
+    {
+      "titulo": "Humor",
+      "cor": "#7159c1",
+      "link_extra": {
+        "text": "Humor para relaxar",
+        "url": "https://www.youtube.com/channel/UCEWHPFNilsT0IfQfutVzsag"
+       
+      },
+      "videos": [
+        {
+          "titulo": "ENQUADRO DO PEÇANHA - CSGO",
+          "url": "https://www.youtube.com/watch?v=F3I_juj23Pw"
+        },
+        {
+          "titulo": "LEO SANTANA FEAT. LEVEZA DESCE BEM | SURTANDO NA QUARENTENA - Ep.8",
+          "url": "https://www.youtube.com/watch?v=voSleG0BQ9Q&list=PLT0Smhj8chMVLHnlI8akR3LbUGxSosgN8"
+        },
+        {
+          "titulo": "FAMÍLIA SEM FILTROS EP. 08 - INTERNET PORRADA",
+          "url": "https://www.youtube.com/watch?v=BHq-HHe1wsE&list=PLT0Smhj8chMUf4Eq7GLhEyw4u6b9jWsUw"
+        },
+        {
+          "titulo": "TRABALHANDO EM CASA #1 - TRAVOU AQUI",
+          "url": "https://www.youtube.com/watch?v=tCEQPzRNQ-k&list=PLT0Smhj8chMUeiPOjHmLDDaGunDOInMsL"
+        }, 
+        {
+          "titulo": "TRABALHANDO EM CASA #2 - PALAVRA CHAVE",
+          "url": "https://www.youtube.com/watch?v=YeDE9ExKtlw&list=PLT0Smhj8chMUeiPOjHmLDDaGunDOInMsL&index=2"
+        }
+      ]
+    },
+    {
       "titulo": "Front End",
       "link": "https://www.alura.com.br/formacao-front-end",
       "cor": "#6BD1FF",
