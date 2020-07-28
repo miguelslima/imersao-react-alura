@@ -2,7 +2,7 @@
   "categorias": [
     {
       "titulo": "Snipers",
-      "cor": "#7159c1",
+      "cor": "#FF2800",
       "link_extra": {
         "text": "Snipers Yotube",
         "url": "https://www.youtube.com/results?search_query=tiro+de+snipers+mais+longo"
@@ -59,6 +59,37 @@
         {
           "titulo": "TRABALHANDO EM CASA #2 - PALAVRA CHAVE",
           "url": "https://www.youtube.com/watch?v=YeDE9ExKtlw&list=PLT0Smhj8chMUeiPOjHmLDDaGunDOInMsL&index=2"
+        }
+      ]
+    },
+    {
+      "titulo": "Crossfit",
+      "cor": "#515514",
+      "link_extra": {
+        "text": "Crossfit Games",
+        "url": "https://www.youtube.com/channel/UCXTo3dt8TiauxltUe2HJdhg"
+       
+      },
+      "videos": [
+        {
+          "titulo": "Opening Ceremony - 2019 Reebok CrossFit Games",
+          "url": "https://www.youtube.com/watch?v=GL_GxigbcPI&list=PLMBAcjeGtKQa_VfWsf22OxDoP4r4YtwOC"
+        },
+        {
+          "titulo": "Rogue Iron Game - Episode 1 - 2019 Reebok CrossFit Games",
+          "url": "https://www.youtube.com/watch?v=c8l-Xyjuz7A&list=PLMBAcjeGtKQa_VfWsf22OxDoP4r4YtwOC&index=2"
+        },
+        {
+          "titulo": "Assault to Bob - Team Event 1 - 2019 Reebok CrossFit Games",
+          "url": "https://www.youtube.com/watch?v=MvfUBc2h7qE&list=PLMBAcjeGtKQa_VfWsf22OxDoP4r4YtwOC&index=3"
+        },
+        {
+          "titulo": "First Cut - Individual Men Event 1 - 2019 Reebok CrossFit Games",
+          "url": "https://www.youtube.com/watch?v=h2aIW1uFeps&list=PLMBAcjeGtKQa_VfWsf22OxDoP4r4YtwOC&index=4"
+        }, 
+        {
+          "titulo": "Rogue Iron Game - Episode 2 - 2019 Reebok CrossFit Games",
+          "url": "https://www.youtube.com/watch?v=xi7spJKRxdc&list=PLMBAcjeGtKQa_VfWsf22OxDoP4r4YtwOC&index=5"
         }
       ]
     },
