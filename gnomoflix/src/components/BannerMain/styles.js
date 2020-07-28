@@ -9,6 +9,7 @@ export const ContentAreaContainer = styled.section`
   justify-content: center;
   position: relative;
   z-index: 10;
+
   @media (max-width: 800px) {
     padding-top: 100px;
     flex-direction: column;
@@ -19,6 +20,7 @@ ContentAreaContainer.Item = styled.div`
   width: 50%;
   display: inline-block;
   margin-bottom: 50px;
+
   @media (max-width: 800px) {
     width: 100%;
   }
@@ -69,9 +71,11 @@ export const BannerMainContainer = styled.section`
   height: 80vh;
   position: relative;
   color: #fff;
+
   background-image: ${({ backgroundImage }) => `url(${backgroundImage})`}; 
   background-size: cover;
   background-position: center;
+
   @media (max-width: 800px) {
     height: auto;
     min-height: 50vh;
@@ -103,11 +107,15 @@ export const BannerMainContainer = styled.section`
 export const WatchButton = styled.button`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  
   cursor: pointer;
+  
   padding: 16px 24px;
+  
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
+  
   outline: none;
   border-radius: 5px;
   text-decoration: none;
@@ -119,6 +127,7 @@ export const WatchButton = styled.button`
   transition: opacity .3s;
   display: none;
   margin: 0 auto;
+
   @media (max-width: 800px) {
     display: block;
   }
