@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
 
+import './index.css'
+
 function Categoria() {
   
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
+    categoria: '',
     descricao: '',
     cor: ''
   }
@@ -41,49 +44,24 @@ function Categoria() {
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.nome}</h1>
+      <h1>Cadastro de Categoria {values.categoria}</h1>
 
       <form onSubmit={handleSubmit}>
-      
+        <FormField 
+          label="Título"
+          type="text"
+          name="titulo"
+          value={values.titulo}
+          onChange={handleCategory}
+        />
+
         <FormField 
           label="Nome da Categoria"
           type="text"
-          name="nome"
-          value={values.nome}
+          name="categoria"
+          value={values.categoria}
           onChange={handleCategory}
         />
-
-        {/* <div>
-          <label htmlFor="">
-            Descrição:
-            <textarea 
-              type="text" 
-              name="descricao"
-              placeholder={values.descricao}
-              onChange={handleCategory}
-            />
-          </label>
-        </div> */}
-
-        <FormField
-          label="Descrição"
-          type="????"
-          name="descricao"
-          value={values.descricao}
-          onChange={handleCategory}
-        />
-
-        {/* <div>
-          <label htmlFor="">
-            Cor:
-            <input 
-              type="color" 
-              name="cor"
-              placeholder={values.cor}
-              onChange={handleCategory}
-            />
-          </label>
-        </div> */}
 
         <FormField
           label="Cor"
@@ -93,18 +71,33 @@ function Categoria() {
           onChange={handleCategory}
         />
 
+        <FormField
+          label="Descrição"
+          type="textArea"
+          name="descricao"
+          value={values.descricao}
+          onChange={handleCategory}
+        />
+
       <button>Cadastrar</button>
       </form>
-
-      <ul style={{listStyle: 'none'}}>
+       
+      <table>
+        <tr>
+          <td>Titulo</td>
+          <td>Categoria</td>
+          <td>Descrição</td>
+        </tr>
         {categorias.map((categoria, id) => {
           return (
-            <li key={`${categoria}${id}`}>
-              {categoria.nome}
-            </li>
+            <tr key={`${id}`}>
+              <td>{categoria.titulo}</td>
+              <td>{categoria.categoria}</td>
+              <td>{categoria.descricao}</td> 
+            </tr> 
           )
         })}
-      </ul>
+      </table>
 
       <Link to="/">
         Home
