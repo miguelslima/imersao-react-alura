@@ -18,12 +18,14 @@ const Container = styled.ul`
     transform: initial;
   
     &:before {
-      font-size: 30px;
+      opacity: 2.5;
+      font-size: 32px;
+      color: ${(props) => props.arrow};
     }
   }
   
   .slick-prev {
-    left: 0;
+    left: 0px;
   }
   .slick-next {
     right: 16px;
@@ -41,17 +43,18 @@ export const SliderItem = styled.li`
   }
 `;
 
-
-const Slider = ({ children }) => (
-  <Container>
+const Slider = ({ children, arrow }) => (
+  <Container arrow={arrow}>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
-      speed: 300,
+      infinite: true,
+      speed: 600,
       centerMode: false,
       variableWidth: true,
       adaptiveHeight: true,
-      
+      initialSlide: 1,
+      accessibility: true,
+      focusOnSelect: true,
     }}
     >
       {children}
