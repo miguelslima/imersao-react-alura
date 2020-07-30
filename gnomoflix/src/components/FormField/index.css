@@ -5,7 +5,7 @@
 
 input,
 textarea {
-  width: 100vh;
+  width: 100%;
   background-color: #53585D;
   font-size: 16px;
   color: var(--netflix);
@@ -16,6 +16,7 @@ input {
   min-height: 40px;
   padding: 10px;
 }
+
 
 input::placeholder,
 textarea::placeholder{

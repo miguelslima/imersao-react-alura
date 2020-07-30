@@ -14,9 +14,9 @@ button:hover {
 }
 
 table {
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   width: 100%;
-  height: 80px;
+  height: 100%;
   border: 2px solid var(--netflix);
   color: #aaa
 }
@@ -26,5 +26,7 @@ tr {
 }
 
 td {
-  border-color: var(--netflix)
+  border-color: var(--netflix);
+  padding: 10px;
 }
+

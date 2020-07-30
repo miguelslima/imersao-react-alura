@@ -83,7 +83,7 @@ function Categoria() {
       </form>
        
       <table>
-        <tr>
+        <tr style={{fontWeight: 'bold'}}>
           <td>Titulo</td>
           <td>Categoria</td>
           <td>Descrição</td>
