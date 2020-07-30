@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
 
-import './index.css'
+import './index.css';
 
 function Categoria() {
-  
   const valoresIniciais = {
     titulo: '',
     categoria: '',
     descricao: '',
-    cor: ''
-  }
+    cor: '',
+  };
 
   const [categorias, setCategorias] = useState([]);
   const [values, setValues] = useState(valoresIniciais);
@@ -22,13 +21,13 @@ function Categoria() {
     setValues({
       ...values,
       [chave]: valor,
-    })
+    });
   }
 
   function handleCategory(event) {
     setValue(
       event.target.getAttribute('name'),
-      event.target.value
+      event.target.value,
     );
   }
 
@@ -39,15 +38,19 @@ function Categoria() {
       values,
     ]);
 
-    setValues(valoresIniciais)
+    setValues(valoresIniciais);
   }
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria {values.categoria}</h1>
+      <h1>
+        Cadastro de Categoria
+        {' '}
+        {values.categoria}
+      </h1>
 
       <form onSubmit={handleSubmit}>
-        <FormField 
+        <FormField
           label="Título"
           type="text"
           name="titulo"
@@ -55,7 +58,7 @@ function Categoria() {
           onChange={handleCategory}
         />
 
-        <FormField 
+        <FormField
           label="Nome da Categoria"
           type="text"
           name="categoria"
@@ -79,31 +82,29 @@ function Categoria() {
           onChange={handleCategory}
         />
 
-      <button>Cadastrar</button>
+        <button type="submit">Cadastrar</button>
       </form>
-       
+
       <table>
-        <tr style={{fontWeight: 'bold'}}>
+        <tr style={{ fontWeight: 'bold' }}>
           <td>Titulo</td>
           <td>Categoria</td>
           <td>Descrição</td>
         </tr>
-        {categorias.map((categoria, id) => {
-          return (
-            <tr key={`${id}`}>
-              <td>{categoria.titulo}</td>
-              <td>{categoria.categoria}</td>
-              <td>{categoria.descricao}</td> 
-            </tr> 
-          )
-        })}
+        {categorias.map((categoria, id) => (
+          <tr key={`${id}`}>
+            <td>{categoria.titulo}</td>
+            <td>{categoria.categoria}</td>
+            <td>{categoria.descricao}</td>
+          </tr>
+        ))}
       </table>
 
       <Link to="/">
         Home
       </Link>
     </PageDefault>
-  )
+  );
 }
 
 export default Categoria;
