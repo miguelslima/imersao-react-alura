@@ -18,7 +18,7 @@
     "styled-components": "^5.1.1"
   },
   "scripts": {
-    "serverTestAula": "json-server --watch gnomoflix/db.json --port 8080",
+    "serverTestAula": "json-server --watch db.json --port 8080",
     "server": "node ./server.js",
     "dev": "concurrently \"react-scripts start\" \"npm run server\"",
     "startTestAula": "react-scripts start",
