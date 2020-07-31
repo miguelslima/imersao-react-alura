@@ -2,6 +2,7 @@ import React from 'react';
 
 import { VideoContainer, ResponsiveIframe } from './styles';
 
+// eslint-disable-next-line react/prop-types
 function YouTubeIframeResponsive({ youtubeID }) {
   return (
     <VideoContainer>

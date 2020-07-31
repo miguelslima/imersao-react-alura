@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Edit, Delete } from '@material-ui/icons';
 
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
+// import Button from '../../../components/Button';
 
 import './index.css';
 
@@ -36,6 +37,14 @@ function Categoria() {
     setValues(valoresIniciais);
   }
 
+  useEffect(() => {
+    const URL_TOP = 'http://localhost:8080/categorias';
+    fetch(URL_TOP).then(async (respostaServidor) => {
+      const resposta = await respostaServidor.json();
+      setCategorias([...resposta]);
+    });
+  }, []);
+
   return (
     <PageDefault>
       <h1>Cadastro de Categoria {values.categoria}</h1>
@@ -67,7 +76,7 @@ function Categoria() {
 
         <FormField
           label="Descrição"
-          type="textArea"
+          type="textarea"
           name="descricao"
           value={values.descricao}
           onChange={handleCategory}
@@ -75,6 +84,8 @@ function Categoria() {
 
         <button type="submit">Cadastrar</button>
       </form>
+
+      {categorias.length === 0 && <div>Loading...</div>}
 
       <table>
         <tr style={{ fontWeight: 'bold' }}>
@@ -84,13 +95,14 @@ function Categoria() {
           {categorias.length > 0 && <td>Opções</td>}
         </tr>
         {categorias.map((categoria) => (
-          <tr key={`${categoria.name}`}>
+          <tr key={`${categoria.id}`}>
             <td>{categoria.titulo}</td>
             <td>{categoria.categoria}</td>
             <td>{categoria.descricao}</td>
             {categoria && (
               <td>
-                <Edit /> <Delete />
+                <Edit onClick={() => alert('Ícone editar chamado')} />{' '}
+                <Delete onClick={() => alert('Ícone delete chamado')} />
               </td>
             )}
           </tr>

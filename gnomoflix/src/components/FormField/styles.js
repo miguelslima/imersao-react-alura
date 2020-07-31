@@ -13,7 +13,6 @@ export const FormFieldWrapper = styled.div`
 `;
 
 export const Label = styled.label``;
-
 Label.Text = styled.span`
   color: #e5e5e5;
   height: 57px;
