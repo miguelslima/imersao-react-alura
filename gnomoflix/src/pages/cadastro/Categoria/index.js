@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Edit, Delete } from '@material-ui/icons';
 
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
@@ -11,7 +12,7 @@ function Categoria() {
     titulo: '',
     categoria: '',
     descricao: '',
-    cor: '',
+    cor: '#DB5419',
   };
 
   const [categorias, setCategorias] = useState([]);
@@ -25,29 +26,19 @@ function Categoria() {
   }
 
   function handleCategory(event) {
-    setValue(
-      event.target.getAttribute('name'),
-      event.target.value,
-    );
+    setValue(event.target.getAttribute('name'), event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setCategorias([
-      ...categorias,
-      values,
-    ]);
+    setCategorias([...categorias, values]);
 
     setValues(valoresIniciais);
   }
 
   return (
     <PageDefault>
-      <h1>
-        Cadastro de Categoria
-        {' '}
-        {values.categoria}
-      </h1>
+      <h1>Cadastro de Categoria {values.categoria}</h1>
 
       <form onSubmit={handleSubmit}>
         <FormField
@@ -90,19 +81,23 @@ function Categoria() {
           <td>Titulo</td>
           <td>Categoria</td>
           <td>Descrição</td>
+          {categorias.length > 0 && <td>Opções</td>}
         </tr>
-        {categorias.map((categoria, id) => (
-          <tr key={`${id}`}>
+        {categorias.map((categoria) => (
+          <tr key={`${categoria.name}`}>
             <td>{categoria.titulo}</td>
             <td>{categoria.categoria}</td>
             <td>{categoria.descricao}</td>
+            {categoria && (
+              <td>
+                <Edit /> <Delete />
+              </td>
+            )}
           </tr>
         ))}
       </table>
 
-      <Link to="/">
-        Home
-      </Link>
+      <Link to="/">Home</Link>
     </PageDefault>
   );
 }
