@@ -28,7 +28,7 @@ const Container = styled.ul`
     left: 0px;
   }
   .slick-next {
-    right: 16px;
+    right: 0px;
   }
 `;
 
@@ -55,7 +55,7 @@ const Slider = ({ children, arrow }) => (
         adaptiveHeight: true,
         initialSlide: 1,
         accessibility: true,
-        focusOnSelect: true,
+        focusOnSelect: true
       }}
     >
       {children}
