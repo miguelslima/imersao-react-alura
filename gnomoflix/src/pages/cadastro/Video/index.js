@@ -15,9 +15,9 @@ function CadastroVideo() {
   const [categorias, setCategorias] = useState([]);
   const categoryTitles = categorias.map(({ titulo }) => titulo);
   const { handleChange, values } = useForm({
-    titulo: 'Video padrão',
-    url: 'https://www.youtube.com/watch?v=XtDXp-E38x4',
-    categoria: 'Games',
+    titulo: '',
+    url: 'https://',
+    categoria: '',
 
   });
 
@@ -28,6 +28,8 @@ function CadastroVideo() {
         setCategorias(categoriasFromServer);
       });
   }, []);
+
+  console.log(categoryTitles)
 
   return (
     <PageDefault>
@@ -51,7 +53,7 @@ function CadastroVideo() {
       }}
       >
         <FormField
-          label="Título do Vídeo "
+          label="Título do Vídeo"
           name="titulo"
           value={values.titulo}
           onChange={handleChange}

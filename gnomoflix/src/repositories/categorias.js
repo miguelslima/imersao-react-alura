@@ -26,7 +26,24 @@ function getAll() {
     });
 }
 
+async function remove(categoriaObject) {
+  console.log(categoriaObject);
+
+  return fetch(`${URL_CATEGORIES}/${categoriaObject.id}`, {
+    method: 'DELETE',
+  }).then(async (responseServer) => {
+    if (responseServer.ok) {
+      const response = await responseServer.json();
+
+      return response;
+    }
+
+    throw new Error('Não foi possível se conectar ao servidor!');
+  });
+}
+
 export default {
   getAllWithVideos,
   getAll,
+  remove
 };
