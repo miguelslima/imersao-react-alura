@@ -35,7 +35,7 @@ ContentAreaContainer.Category = styled.h1`
   display: flex;
   align-items: center;
   text-align: center;
-  display: inline-block; 
+  display: inline-block;
   padding: 25px;
   line-height: 1;
   border-radius: 4px;
@@ -72,7 +72,7 @@ export const BannerMainContainer = styled.section`
   position: relative;
   color: #fff;
 
-  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`}; 
+  background-image: ${({ backgroundImage }) => `url(${backgroundImage})`};
   background-size: cover;
   background-position: center;
 
@@ -107,15 +107,15 @@ export const BannerMainContainer = styled.section`
 export const WatchButton = styled.button`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-  
+
   cursor: pointer;
-  
+
   padding: 16px 24px;
-  
+
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  
+
   outline: none;
   border-radius: 5px;
   text-decoration: none;

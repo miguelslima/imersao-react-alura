@@ -1,93 +1,86 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
+import useForm from '../../../hooks/useForm';
 
 import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
+import videosRepository from '../../../repositories/videos';
+import categoriasReposiroty from '../../../repositories/categorias'
 
 import './index.css';
 
-function Categoria() {
-  const valoresIniciais = {
-    titulo: '',
-    categoria: '',
-    descricao: '',
-    cor: '#DB5419',
-  };
-
+function CadastroVideo() {
+  const history = useHistory();
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
+  const categoryTitles = categorias.map(({ titulo }) => titulo);
+  const { handleChange, values } = useForm({
+    titulo: 'Video padrão',
+    url: 'https://www.youtube.com/watch?v=XtDXp-E38x4',
+    categoria: 'Games',
 
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
+  });
 
-  function handleCategory(event) {
-    setValue(event.target.getAttribute('name'), event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setCategorias([...categorias, values]);
-
-    setValues(valoresIniciais);
-  }
+  useEffect(() => {
+    categoriasReposiroty
+      .getAll()
+      .then((categoriasFromServer) => {
+        setCategorias(categoriasFromServer);
+      });
+  }, []);
 
   return (
     <PageDefault>
-      <h1>Em construção =)</h1>
-      <h1>Cadastro de Vídeo</h1>
+      <h1>Cadastro de videos</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(event) => {
+        event.preventDefault();
+        // alert('Video Cadastrado');
+
+        const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria);
+
+        videosRepository.create({
+          titulo: values.titulo,
+          url: values.url,
+          categoriaId: categoriaEscolhida.id,
+
+        })
+          .then(() => {
+            history.push('/');
+          });
+      }}
+      >
         <FormField
-          label="Título"
-          type="text"
+          label="Título do Vídeo "
           name="titulo"
           value={values.titulo}
-          onChange={handleCategory}
+          onChange={handleChange}
+        />
+        <FormField
+          label="Url do Vídeo"
+          name="url"
+          value={values.url}
+          onChange={handleChange}
         />
 
         <FormField
-          label="Nome do vídeo"
-          type="text"
+          label="Categoria"
           name="categoria"
           value={values.categoria}
-          onChange={handleCategory}
+          onChange={handleChange}
+          suggestions={categoryTitles}
         />
 
-        <FormField
-          label="Link"
-          type="link"
-          name="descricao"
-          value={values.descricao}
-          onChange={handleCategory}
-        />
-
-        <button type="submit">Cadastrar</button>
+        <button type="submit">
+          Cadastrar
+        </button>
       </form>
-      {/*
-      <table>
-        <tr style={{ fontWeight: 'bold' }}>
-          <td>Titulo</td>
-          <td>Categoria</td>
-          <td>Descrição</td>
-        </tr>
-        {categorias.map((categoria) => (
-          <tr key={`${categoria.name}`}>
-            <td>{categoria.titulo}</td>
-            <td>{categoria.categoria}</td>
-            <td>{categoria.descricao}</td>
-          </tr>
-        ))}
-      </table> */}
 
-      <Link to="/">Home</Link>
-      <div style={{ display: 'inline-block', padding: 20 }} />
-      <Link to="/cadastro/categoria">Categoria</Link>
+      <Link to="/cadastro/categoria">
+        Cadastrar Categoria
+      </Link>
     </PageDefault>
   );
 }
 
-export default Categoria;
+export default CadastroVideo;

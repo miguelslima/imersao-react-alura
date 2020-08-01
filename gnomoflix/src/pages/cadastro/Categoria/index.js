@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Edit, Delete } from '@material-ui/icons';
-
-import FormField from '../../../components/FormField';
 import PageDefault from '../../../components/PageDefault';
-// import Button from '../../../components/Button';
+import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
+import { Edit, Delete } from '@material-ui/icons';
 
 import './index.css';
 
 function Categoria() {
+
   const valoresIniciais = {
     titulo: '',
     categoria: '',
@@ -16,26 +17,12 @@ function Categoria() {
     cor: '#DB5419',
   };
 
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
 
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor,
-    });
-  }
-
-  function handleCategory(event) {
-    setValue(event.target.getAttribute('name'), event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setCategorias([...categorias, values]);
-
-    setValues(valoresIniciais);
-  }
+  // function handleCategory(event) {
+  //   setValue(event.target.getAttribute('name'), event.target.value);
+  // }
 
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
@@ -50,15 +37,22 @@ function Categoria() {
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria {values.categoria}</h1>
+      <h1>Cadastro de Categoria {values.titulo}</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={function handleSubmit(infosDoEvento) {
+        infosDoEvento.preventDefault();
+        setCategorias([
+          ...categorias,
+          values,
+        ]);
+        clearForm();
+      }}>
         <FormField
           label="Título"
           type="text"
           name="titulo"
           value={values.titulo}
-          onChange={handleCategory}
+          onChange={handleChange}
         />
 
         <FormField
@@ -66,7 +60,7 @@ function Categoria() {
           type="text"
           name="categoria"
           value={values.categoria}
-          onChange={handleCategory}
+          onChange={handleChange}
         />
 
         <FormField
@@ -74,7 +68,7 @@ function Categoria() {
           type="color"
           name="cor"
           value={values.cor}
-          onChange={handleCategory}
+          onChange={handleChange}
         />
 
         <FormField
@@ -82,10 +76,10 @@ function Categoria() {
           type="textarea"
           name="descricao"
           value={values.descricao}
-          onChange={handleCategory}
+          onChange={handleChange}
         />
 
-        <button type="submit">Cadastrar</button>
+        <button>Cadastrar</button>
       </form>
 
       {categorias.length === 0 && <div>Loading...</div>}

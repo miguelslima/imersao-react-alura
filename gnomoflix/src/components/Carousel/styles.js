@@ -27,7 +27,7 @@ export const ExtraLink = styled.a`
   &:focus {
     opacity: .5;
   }
-  
+
   @media (max-width: 800px) {
     display: block;
     margin-bottom: 16px;
@@ -47,7 +47,7 @@ export const VideoCardList = styled.ul`
   li {
     margin-right: 16px;
   }
-
+/*
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -64,7 +64,7 @@ export const VideoCardList = styled.ul`
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #DB5419;
-  }
+  } */
 `;
 
 export const VideoCardGroupContainer = styled.section`
@@ -72,4 +72,5 @@ export const VideoCardGroupContainer = styled.section`
   min-height: 197px;
   margin-left: 5%;
   margin-bottom: 16px;
+  text-align: justify;
 `;
