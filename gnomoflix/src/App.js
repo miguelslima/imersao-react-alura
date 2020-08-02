@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import './index.css';
 
+import './index.css';
 
 import BannerMain from './components/BannerMain';
 import Carousel from './components/Carousel';
-import PageDefault from './components/PageDefault'
-
-import categoriaRepository from './repositories/categorias'
+import PageDefault from './components/PageDefault';
+import Loading from './components/Loading';
+import categoriaRepository from './repositories/categorias';
 
 function App() {
-  const [dadosIniciais, setDadosIniciais] = useState([])
+  const [dadosIniciais, setDadosIniciais] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      categoriaRepository.getAllWithVideos()
-        .then((categoriasComVideos) => {
-          setDadosIniciais(categoriasComVideos)
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
-    }, []);
+    setLoading(true);
+    categoriaRepository
+      .getAllWithVideos()
+      .then((categoriasComVideos) => {
+        setLoading(true);
+        setDadosIniciais(categoriasComVideos);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      })
+  }, []);
 
   return (
     <PageDefault paddingAll={0}>
-
-      {dadosIniciais.length === 0 && (<div>Loading..</div>)}
+      <Loading loading={loading} />
 
       {dadosIniciais.map((categoria, indice) => {
         if (indice === 0) {
@@ -35,20 +41,13 @@ function App() {
                 url={dadosIniciais[0].videos[0].url}
                 videoDescription="Humor para relaxar nessa quarentena eterna. Então vamos rir para ajudar!"
               />
-              <Carousel
-                ignoreFirstVideo
-                category={dadosIniciais[0]}
-              />
+              <Loading />
+              <Carousel ignoreFirstVideo category={dadosIniciais[0]} />
             </div>
           );
         }
 
-        return (
-          <Carousel
-            key={categoria.id}
-            category={categoria}
-          />
-        );
+        return <Carousel key={categoria.id} category={categoria} />;
       })}
 
       {/*
@@ -62,7 +61,6 @@ function App() {
 
       <Carousel category={dadosIniciais.categorias[5]} />
       */}
-
     </PageDefault>
   );
 }
